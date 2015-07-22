@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+		
+    <title>Bootstrap 101 Template</title>
+		
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,500,300,700,400italic|Roboto+Slab:400,700,300' rel='stylesheet' type='text/css'>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+		<link href="css/ionicons.css" rel="stylesheet">
+		
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+		<style>
+			html { height: 100%; }
+			body { min-height: 100%; }
+			h1, h2, h3, h4, h5, h6 {font-family: 'Roboto Slab', serif;}
+			body {font-family: 'Roboto', sans-serif; background-color: #EEE; font-size: 16px; }
+		</style>
+	</head>
+  <body>
+		<!-- Fixed navbar -->
+    
+		<style>
+			.flex-grid {
+			}
+			.flex-grid__row { 
+			display: flex;
+			
+			}
+			.flex-grid__row--hr { 
+			flex-direction: row;
+			}
+			.flex-grid__row--vr { 
+			flex-direction: column;
+			}
+			.flex-grid__col {
+			
+			}
+			.col_1 {
+			width: 8.33333%; 
+			}
+			
+			.col_2 {
+			width: 16.66667%; 
+			}
+			
+			.col_3 {
+			width: 25%; 
+			}
+			
+			.col_4 {
+			width: 33.33333%; 
+			}
+			
+			.col_5 {
+			width: 41.66667%; 
+			}
+			
+			.col_6 {
+			width: 50%; 
+			}
+			
+			.col_7 {
+			width: 58.33333%; 
+			}
+			
+			.col_8 {
+			width: 66.66667%; 
+			}
+			
+			.col_9 {
+			width: 75%; 
+			}
+			
+			.col_10 {
+			width: 83.33333%; 
+			}
+			
+			.col_11 {
+			width: 91.66667%; 
+			}
+			
+			.col_12 {
+			width: 100%; 
+			}
+			.sidebar {
+			background-color: #2c3e50;
+			color: #FFF;
+			overflow: auto;
+			}
+			.sidebar-nav {
+			
+			}
+			.sidebar-nav ul {
+			 list-style-type: none;
+			}
+			.sidebar-nav a {
+				color: #91A1B2;
+				display: block;
+				padding: 5px;
+				text-decoration: none;
+			}
+			.sidebar-nav a:hover {
+			color: #FFF;
+			}
+			.pad-10 {
+			padding: 10px;
+			}
+			.full-height {
+			height: 100%;
+			}
+			.full-height-vh {
+			height: 100vh;
+			}
+			.nomargin { margin: 0; }
+			.nopadding { padding: 0; }
+		</style>
+		<div class="flex-grid">
+			<nav class="[ flex-grid__row flex-grid__row--vr ] [ navbar navbar-default ] nomargin">
+				<div class="container">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="#">Project name</a>
+					</div>
+					<div id="navbar" class="navbar-collapse collapse">
+						<ul class="nav navbar-nav">
+							<li class="active"><a href="#">Home</a></li>
+							<li><a href="#about">About</a></li>
+							<li><a href="#contact">Contact</a></li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a href="#">Action</a></li>
+									<li><a href="#">Another action</a></li>
+									<li><a href="#">Something else here</a></li>
+									<li role="separator" class="divider"></li>
+									<li class="dropdown-header">Nav header</li>
+									<li><a href="#">Separated link</a></li>
+									<li><a href="#">One more separated link</a></li>
+								</ul>
+							</li>
+						</ul>
+						<ul class="nav navbar-nav navbar-right">
+							<li><a href="../navbar/">Default</a></li>
+							<li><a href="../navbar-static-top/">Static top</a></li>
+							<li class="active"><a href="./">Fixed top <span class="sr-only">(current)</span></a></li>
+						</ul>
+					</div><!--/.nav-collapse -->
+				</div>
+			</nav>
+			
+			<div class="[ flex-grid__row flex-grid__row--hr ] full-height-vh">
+				
+				
+				<aside class="[ flex-grid__col col_3 ] pad-10 sidebar">
+					<div class="logo">
+						
+					</div>
+					<nav class="sidebar-nav">
+						<ul class="nopadding">
+							<li><a href="#">My List</a></li>
+							<li><a href="#">Favorites</a></li>
+							<li><a href="#">Archived</a></li>
+							<li><a role="button" data-toggle="collapse" href="#categories_list" aria-expanded="false" aria-controls="categories_list">Categories</a>
+								<div class="collapse" id="categories_list">
+									<ul class="sidebar-nav__sub-nav">
+										<li><a href="#">JavaScript</a></li>
+									</ul>
+								</div>
+							</li>
+							<li><a role="button" data-toggle="collapse" href="#tags_list" aria-expanded="false" aria-controls="tags_list">Tags</a>
+								<div class="collapse" id="tags_list">
+									<ul class="sidebar-nav__sub-nav">
+										<li><a href="#">JavaScript</a></li>
+									</ul>
+								</div>
+							</li>
+						</ul>
+					</nav>
+				</aside>
+				
+				<section class="[ flex-grid__col col_9 ] pad-10 main">
+					<style>
+						.article-list {
+						display: flex;
+						flex-direction: row;
+						flex-wrap: wrap;
+						}
+						.article-list__item {
+						list-style-type: none;
+						background-color: #FFF;
+						flex: 0 0 31%;
+						margin: 1em 1%;
+						padding: 15px; 
+						min-height: 300px;
+						position: relative;
+						overflow:hidden;
+						transition: box-shadow 0.3s linear;
+						}
+						.article-list__item a {
+							text-decoration: none;
+						}
+						.article-list__item:hover {
+							box-shadow: 0 2px 3px rgba(0,0,0,0.3);
+						}
+						.article-list__item:hover .article-list__actions {
+							opacity: 1;
+							bottom: 0;
+						}
+						.article-list__item img {
+							max-width: 100%;
+						}
+						.article-list__item .article-list__actions {
+							display: flex;
+							flex-direction: row;
+							position: absolute;
+							bottom: -30px;
+							left:0;
+							width: 100%;
+							opacity: 0;
+							transition: opacity 0.5s ease, bottom 0.3s ease-in-out;
+							background-color: #EEE;
+							border-top: 1px solid #DDD;
+						}
+						.article-list__item .article-list__actions a {
+							flex-grow: 1;
+							font-size: 28px;
+							text-align: center;
+							color: #333;
+						}
+					</style>
+					<ul class="article-list nopadding">
+						<li class="article-list__item">
+							<header class="article-list__item-header">
+								<a href="#"><img src="https://cms-assets.tutsplus.com/uploads/users/30/posts/21540/image/grid.png" alt="" /></a>
+								<h3><a href="#">Title of the box</a></h3>
+								<span class="date"><i class="ion-calendar"></i> 15 Dec, 2015</span>
+							</header>
+							<p>Responsive Grids work by adding media classes to the Grid cells or containers. When those media values are met, the grids automatically adjust accordingly.</p>
+							<p>Resource taken from</p>
+							<div class="article-list__actions">
+							<a href="#" title="Share" data-toggle="tooltip" data-placement="top"><i class="ion-android-share-alt"></i></a>
+								<a href="#" title="Edit" data-toggle="tooltip" data-placement="top"><i class="ion-edit"></i></a>
+								<a href="#" title="Delete" data-toggle="tooltip" data-placement="top"><i class="ion-trash-a"></i></a>
+								<a href="#" title="Archive" data-toggle="tooltip" data-placement="top"><i class="ion-ios-filing"></i></a>
+								<a href="#" title="Favourite" data-toggle="tooltip" data-placement="top"><i class="ion-star"></i></a>
+							</div>
+						</li>
+						
+						<li class="article-list__item">
+							<header>
+								<img src="" alt="" />
+								<h3>Title of the box</h3>
+							</header>							
+							<p>Description upto 200 characters</p>
+							<p>Resource taken from</p>
+							<footer class="article-list__footer">
+								<a href="#" title="Share">Share</a>
+								<a href="#" title="Edit">Edit</a>
+								<a href="#" title="Delete">Delete</a>
+								<a href="#" title="Archive">Archive</a>
+							</footer>
+						</li>
+						
+						<li class="article-list__item">
+							<header>
+								<img src="" alt="" />
+								<h3>Title of the box</h3>
+							</header>							
+							<p>Description upto 200 characters</p>
+							<p>Resource taken from</p>
+							<footer class="article-list__footer">
+								<a href="#" title="Share">Share</a>
+								<a href="#" title="Edit">Edit</a>
+								<a href="#" title="Delete">Delete</a>
+								<a href="#" title="Archive">Archive</a>
+							</footer>
+						</li>
+						
+						<li class="article-list__item">
+							<header>
+								<img src="" alt="" />
+								<h3>Title of the box</h3>
+							</header>							
+							<p>Description upto 200 characters</p>
+							<p>Resource taken from</p>
+							<footer class="article-list__footer">
+								<a href="#" title="Share">Share</a>
+								<a href="#" title="Edit">Edit</a>
+								<a href="#" title="Delete">Delete</a>
+								<a href="#" title="Archive">Archive</a>
+							</footer>
+						</li>
+					</ul>
+				</section>
+			</div>
+		</div>
+		
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+		<script>
+			$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+		</script>
+	</body>
+</html>
