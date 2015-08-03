@@ -12,7 +12,7 @@
 		<form name="test" onsubmit="submitForm(event); return false;">
 			
 			<label for="address">Example Address</label>
-			<textarea name="address" id="address" rows="10" cols="30"></textarea>
+			<textarea name="address" id="address" rows="10" cols="50"></textarea>
 			
 			<br/>
 			<input type="submit" value="submit" />
@@ -29,7 +29,7 @@
 		<div id="addressPart3"></div>
 		
 		<script>
-			// function which will split address and return splitted address
+			// START :: function which will split address and return splitted address
 			function splitAddress(address) {
 				var address,
 				tempArr = [],
@@ -51,7 +51,7 @@
 						noOfLoops = 2;
 					} 
 					else {
-						addressObj.address1 = address.replace(/\s+/g," ").replace(/^\s+|(\r\n|\n|\r)|\s+$/g,""); // Trim white space before/after address
+						addressObj.address1 = address; // Trim white space before/after address
 						return addressObj;
 					}
 					
@@ -83,8 +83,7 @@
 			
 			
 			
-			
-			// Just a demo function for form submit
+			// Just a demo function to form submit
 			function submitForm(event) {
 				event.preventDefault();
 				var txtAreaVal = document.querySelector('#address'); // Get textarea value
