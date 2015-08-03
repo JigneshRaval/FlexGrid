@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+	<head>
+		<script src="js/angular.js"></script>
+		<style>
+			
+		</style>
+	</head>
+	<body ng-app="myapp" ng-init="cost=30;nation=India;">
+		<div ng-controller="HelloController as vm" >
+			<h2>Welcome {{vm.helloTo.title}}</h2>
+			<input type="text" ng-model="vm.helloTo.firstName" />
+			<input type="text" ng-model="vm.helloTo.lastName" />
+			<span ng-bind="vm.helloTo.fullName()"></span>
+			<p>{{1 + 1}} {{cost}}</p>
+		</div>
+		
+		<nav class="{{active}}">
+			<a href="#" class="home" ng-click="active='home'">Home</a>
+			<a href="#" class="aboutus" ng-click="active='aboutus'">About us</a>
+		</nav>
+		<p ng-show="active">Page name {{active}}</p>
+		
+		<div class="" data-ng-controller="inlineEditor">
+			<div class="tooltip" ng-show="showTooltip">
+				<input type="text" ng-model="value" />
+			</div>
+			
+			<p ng-click="toggleTooltip($event)">{{value}}</p>
+		</div>
+		
+		<div ng-controller="AddSubtractController">
+			<input type="button" ng-click="add(1)" value="Add" />
+			<input type="button" ng-click="subtract(1);" value="Subtract" />
+			Total {{counter}}
+		</div>
+		
+		<script>
+			(function(){
+				angular.module('myapp', []);
+				
+				// Example 1
+				angular
+					.module('myapp')
+					.controller('HelloController', HelloController);
+				
+				function HelloController() {
+					var vm = this;
+					vm.helloTo = {};
+					vm.helloTo.title = "This is test";
+					vm.helloTo.fullName = function() {
+						return vm.helloTo.firstName + ":" + vm.helloTo.lastName;
+					}
+				}
+				
+				// Example 2
+				angular
+					.module('myapp')
+					.controller('inlineEditor', inlineEditor);
+				
+				function inlineEditor($scope) {
+					$scope.showTooltip = false;
+					$scope.value = "Edit This";
+					
+					$scope.toggleTooltip = function(e) {
+						e.stopPropagation();
+						$scope.showTooltip = !$scope.showTooltip;
+					}
+				}
+				
+				// Example 3
+				angular
+					.module('myapp')
+					.controller('AddSubtractController', AddSubtractController);
+				
+				function AddSubtractController($scope) {
+					$scope.counter = 0;
+					$scope.add = function(amount) {
+						$scope.counter = $scope.counter + amount;
+					}
+					
+					$scope.subtract = function(amount) {
+						$scope.counter = $scope.counter - amount;
+					}
+				}
+			})();
+		</script>
+	</body>
+</html>

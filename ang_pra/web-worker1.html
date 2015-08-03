@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		
+	</head>
+	
+	<body>
+		<div id="results"></div>
+		
+		<script>
+			var worker = new Worker("counter.js"); // Create new worker
+			
+			function update(event) {
+				console.log(event.data);
+				document.getElementById("results").innerHTML = event.data;
+			};
+			worker.onmessage = update;
+			
+			//worker.postMessage('Hello World'); // Send data to our worker.
+		</script>
+		
+	</body>
+</html>

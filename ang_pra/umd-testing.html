@@ -1,0 +1,38 @@
+<html>
+	<head>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+		
+	</head>
+	<body>
+		<div id="testId"></div>
+		
+		
+		<script>
+			(function (root, factory) {
+				if (typeof define === 'function' && define.amd) {
+					// AMD
+					define(['jquery'], factory);
+					} else if (typeof exports === 'object') {
+					// Node, CommonJS-like
+					module.exports = factory(require('jquery'));
+					} else {
+					// Browser globals (root is window)
+					console.log(root, factory);
+					root.test = factory(root.jQuery);
+				}
+				}(this, function($) {
+				//    methods
+				function myFunc(){
+					console.log("My Function Testing");
+					$('#testId').html("<p>This is testing</p>");
+				};
+				
+				//    exposed public method
+				return myFunc;
+			}));
+			
+			// use it
+			test();
+		</script>
+	</body>
+</html>

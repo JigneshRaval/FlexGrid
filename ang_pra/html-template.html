@@ -1,0 +1,54 @@
+<html>
+	<head>
+		
+	</head>
+	<body>
+		<!-- Example 1 : Use of HTML5 Template Tag -->
+		<div id="test"></div>
+		<template id="temp1">
+			<p>This is content of template 1.</p>
+		</template>
+		
+		<script>
+			function checkTempAvail() {
+				return "content" in document.createElement('template');
+			}
+			
+			if(checkTempAvail) {
+				console.log("HTML Template available");
+				var tmpl = document.querySelector('#temp1');
+				var clone = document.importNode(tmpl.content, true);
+				document.querySelector('#test').appendChild(clone);
+			}
+			else {
+				console.log("HTML Template not available");
+			}
+		</script>
+		
+		<!-- Example 2 : Use of document.createDocumentFragment() -->
+		<ul id="docFragExample"></ul>
+		<script>
+			(function() {
+				var i = 0;
+				var docFrag = document.createDocumentFragment();
+				
+				while(i < 10) {
+					var elLi = document.createElement('li');
+					elLi.appendChild(document.createTextNode("This is list item .. "+i));
+					
+					docFrag.appendChild(elLi);
+					i++;
+				};
+				
+				document.querySelector('#docFragExample').appendChild(docFrag);
+			})();
+		</script>
+		
+		<script>
+			var postMessagePopup = window.open("callback.html", "Testing PostMessage API");
+			
+			postMessagePopup.postMessage("Testing","callback.html")
+			
+			</script>
+	</body>
+</html>

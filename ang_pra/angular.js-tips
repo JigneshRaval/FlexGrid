@@ -1,0 +1,140 @@
+Angular.js
+---------------
+What is a Module?
+You can think of a module as a container for the different parts 
+of your app – controllers, services, filters, directives, etc.
+
+Scope is an object that refers to the application model. It is an execution context for expressions. Scopes are arranged in hierarchical structure which mimic the DOM structure of the application. Scopes can watch expressions and propagate events.
+
+Scopes provide APIs ($watch) to observe model mutations.
+
+Scopes provide APIs ($apply) to propagate any model changes through the system into the view from outside of the "Angular realm" (controllers, services, Angular event handlers).
+
+Scopes can be nested to limit access to the properties of application components while providing access to shared model properties. Nested scopes are either "child scopes" or "isolate scopes". A "child scope" (prototypically) inherits properties from its parent scope. An "isolate scope" does not. See isolated scopes for more information.
+
+Scopes provide context against which expressions are evaluated. For example {{username}} expression is meaningless, unless it is evaluated against a specific scope which defines the username property.
+
+Scope is the glue between application controller and the view.
+
+- Extend method using javascript
+Method1 :
+function extend(a, b){
+    for(var key in b)
+        if(b.hasOwnProperty(key))
+            a[key] = b[key];
+    return a;
+}
+
+Method 2 :
+function extend(){
+    for(var i=1; i<arguments.length; i++)
+        for(var key in arguments[i])
+            if(arguments[i].hasOwnProperty(key))
+                arguments[0][key] = arguments[i][key];
+    return arguments[0];
+}
+
+Method 3 :
+If all you need is extend, then it's pretty simple to write that in a couple of lines. If you want recursive extension, it's tricky to do that completely generically if you want have circular structures, objects with complex prototype chains, etc. If it's just some nested plain objects, then this should work:
+
+function extend (target, source) {
+  target = target || {};
+  for (var prop in source) {
+    if (typeof source[prop] === 'object') {
+      target[prop] = extend(target[prop], source[prop]);
+    } else {
+      target[prop] = source[prop];
+    }
+  }
+  return target;
+}
+
+========= Array Function ======
+array.map(callback,[ thisObject]);
+
+Example 1 :
+var data = [1, 2, 3, 4];
+
+var arrayOfSquares = data.map(function (item) {
+	return item * item;
+});
+
+alert(arrayOfSquares); // 1, 4, 9, 16
+
+Example 2 :
+
+var users = [
+	{name: "Dmitry", "email": "dmitry@email.com"},
+	{name: "John",   "email": "john@email.com"},
+	{name: "David",  "email": "david@email.de"},
+	// etc
+];
+
+var emails = users.map(function (user) { return user.email; });
+
+alert(emails); // ["dmitry@email.com", "john@email.com", "david@email.de"]
+
+------------------
+Function Currying, also known as partial function application, is the use of a function (that accept one or more arguments) that returns a new function with some of the arguments already set. The function that is returned has access to the stored arguments and variables of the outer function. This sounds way more complex than it actually is, so let’s code.
+
+--------------------
+Did you know that the arguments variable inside all functions is not actually an array? That means you can't use all the nice array methods like pop, push and slice on it! If you want to turn arguments into an array, use call:
+
+var args = [].slice.call(arguments, 0);
+
+-----------------------
+useful js: snippets
+20 Dec 2012
+Here's some Javascript snippets I find myself using every day. You should be good to drop them into your page, but if you've not familiar with a particular technique then it's always good idea to read up on it before using it. I've provided links where I can.
+
+Note: Some snippets use parts of Javascript ES5. To get this stuff in older browsers (< IE9), use the ES5 Shim.
+
+Log arguments
+
+Need to check the all the arguments coming into a function? No probs: use call and apply.
+
+console.log.apply(console, arguments);
+Set 'this' in setTimeout
+
+Want to make sure of the value of this is the same inside a setTimeout callback? Use bind.
+
+setTimeout(function () {
+  // Do yaw thang...
+}.bind(this), 1000);
+Call a function from setTimeout
+
+Do you do this much?
+
+setTimeout(function () {
+  do_something_with(x, y);
+}, 1000);
+Try this (again with bind):
+
+setTimeout(do_something_with.bind(this, x, y), 1000);
+Filter items from an array
+
+Need to make sure all items in an array pass certain criteria? Try filter. If you return true from the callback the item is kept, otherwise it's scrapped.
+
+var evens = [1,2,3,4].filter(function (val) {
+  return (val % 2 === 0);
+});
+Operate on an array
+
+Want to carry out an operation on every item in an array? Take a look at map.
+
+var squares = [1,2,3,4].map(function (val) {
+  return val * val;
+});
+Easy function defaults
+
+You've got a function that can takes an optional argument, and you want to provide a default.
+
+Use the or operator! (Also, get nerdy)
+
+var say = function (word) {
+  word = word || "Hello!";
+  console.log(word);
+};
+
+say(); // logs "Hello!"
+say("World!"); // logs "World!"

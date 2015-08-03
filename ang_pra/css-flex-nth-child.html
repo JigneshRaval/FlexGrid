@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			.flex-demo-wrapper div {
+			min-height: 50px;
+			padding: 10px;
+			}
+			.flex-demo-wrapper div:nth-child(3n):last-child {
+			background: #CCC;
+			}
+			
+			.flex-container { border: 1px solid #EEE; }
+			.flex-row { display: flex; flex-direction: column; }
+			.flex-column {flex : 1; border: 1px solid #CCC; padding: 10px; }
+			
+			@media all and ( min-width: 720px ) {
+			
+			.grid__row--md {
+			flex-direction: row;
+			}
+			
+			}
+		</style>
+	</head>
+	<body>
+		<div class="flex-demo-wrapper">
+			<div class="flex-item">
+				1
+			</div>
+			<div class="flex-item">
+				2
+			</div>
+			<div class="flex-item">
+				3
+			</div>
+		</div>
+		
+		<div class="flex-container">
+			<div class="flex-row grid__row--md">
+				<div class="flex-column">
+					Col1
+				</div>
+				<div class="flex-column">
+					Col 2
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

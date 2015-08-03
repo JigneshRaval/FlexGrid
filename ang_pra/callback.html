@@ -1,0 +1,32 @@
+<html>
+	<head>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+		
+	</head>
+	<body>
+		<div id="testId"></div>
+		<a href="javascript:;" id="clickLink">Test</a>
+		
+		<script>
+			function testCallback() {
+				console.log("testing Callback");
+			}
+			
+			var ele = document.getElementById("clickLink");
+			ele.addEventListener('click', testCallback);
+			
+			function callback_with_call( arg1, arg2, callback) {
+				var result1 = arg1.replace( "argument", "result" ),
+						result2 = arg2.replace( "argument", "result" );
+
+				callback && callback.call( this, result1, result2 );
+			}
+			
+			callback_with_call( "I am argument1", "I am argument2", function( result1, result2 ){
+				console.log(result1, result2, this);
+			});
+			
+
+		</script>
+	</body>
+</html>
