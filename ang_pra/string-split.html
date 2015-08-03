@@ -13,7 +13,7 @@
 			
 			<label for="address">Example Address</label>
 			<textarea name="address" id="address" rows="10" cols="30"></textarea>
-	
+			
 			<br/>
 			<input type="submit" value="submit" />
 		</form>
@@ -44,41 +44,44 @@
 					
 					tempAddress = address;
 					
-					if(address.length > 70) {
+					if(address.length > 140) {
+						noOfLoops = 3;
+					} 
+					else if(address.length > 70) {
 						noOfLoops = 2;
-
-						for(var i = 0; i < noOfLoops; i++) {
-							if(i < 2){
-								tempArr.push(tempAddress.substr(0, tempAddress.lastIndexOf(" ", 69)));
-							}
-							else {
-								tempArr.push(tempAddress.substr(0, tempAddress.length));
-							}
-							
-							strlenght += tempArr[i].length;						
-							
-							tempAddress = address.substring(strlenght, address.length);
-						}
-						
-						for(var i = 0; i < tempArr.length; i++) {
-							addressObj["address"+(i+1)] = tempArr[i];
-						}
-						console.log("addressObj 1:", addressObj);
-						
-						return addressObj;
-					}
+					} 
 					else {
 						addressObj.address1 = address.replace(/\s+/g," ").replace(/^\s+|(\r\n|\n|\r)|\s+$/g,""); // Trim white space before/after address
-						
-						console.log("addressObj 2:", addressObj);
 						return addressObj;
 					}
+					
+					for(var i = 0; i < noOfLoops; i++) {
+						if(i < noOfLoops - 1){
+							tempArr.push(tempAddress.substr(0, tempAddress.lastIndexOf(" ", 69)));
+						}
+						else {
+							tempArr.push(tempAddress.substr(0, tempAddress.length));
+						}
+						
+						strlenght += tempArr[i].length;						
+						
+						tempAddress = address.substring(strlenght, address.length);
+					}
+					
+					for(var i = 0; i < tempArr.length; i++) {
+						addressObj["address"+(i+1)] = tempArr[i];
+					}
+					return addressObj;
+					
 				}
 				else {
 					return false;
-				}
-				
+				}				
 			}
+			
+			
+			
+			
 			
 			
 			// Just a demo function for form submit
@@ -86,7 +89,7 @@
 				event.preventDefault();
 				var txtAreaVal = document.querySelector('#address'); // Get textarea value
 				
-				var splitedAddress = splitAddress(txtAreaVal.value, 10); // Pass textarea value and Number of words require in chunks
+				var splitedAddress = splitAddress(txtAreaVal.value); // Pass textarea value and Number of words require in chunks
 				
 				// Display Address on Screen 
 				document.querySelector('#addressPart1').innerHTML = splitedAddress.address1;
@@ -98,4 +101,4 @@
 			}
 		</script>
 	</body>
-</html>	
+</html>		
