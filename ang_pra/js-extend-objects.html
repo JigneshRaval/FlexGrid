@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		
+	</head>
+	
+	<body>
+		<div id="results"></div>
+		
+		<script>
+			var defaults = {
+				number: 1,
+				bool: true,
+				magic: 'real',
+				animal: 'whale',
+				croutons: 'delicious'
+			};
+			
+			var options = {
+				number: 2,
+				magic: 'real',
+				animal: 'porpoise',
+				bool: false,
+				random: 42
+			};
+			
+			function extend( defaults, options ) {
+				console.log("Defaults :", defaults, options );
+				for( var key in options ) { 
+					if( options.hasOwnProperty( key ) ) {
+						defaults[key] = options[key];
+					}
+				}
+				
+				console.log("Defaults :", defaults);
+				console.log("Options :", options);
+				
+				return defaults;
+			}
+			
+			extend( defaults, options );
+		</script>
+		
+	</body>
+</html>

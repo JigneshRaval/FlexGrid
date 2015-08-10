@@ -1,0 +1,146 @@
+<html>
+	<head>
+	</head>
+	<body>
+		<!-- form validation -->
+		
+		<form class="form-horizontal frm_validate" name="frm" action="#" onsubmit="myValidate(event)">
+			<fieldset>
+				<legend>Form Validation</legend>
+				<div class="form-group">
+					<label for="inputName" class="col-lg-3 control-label">Username<span class="star">  </span></label>
+					<div class="col-lg-9">
+						<input class="form-control" id="inputName" placeholder="Name" type="text" name="username">
+						<span id="txt_username"></span>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="inputPassword" class="col-lg-3 control-label">Password<span class="star">  *</span></label>
+					<div class="col-lg-9">
+						<input class="form-control" id="inputPassword" placeholder="....." type="password" name="password">
+						<span id="txt_password"></span>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label for="confirmPassword" class="col-lg-3 control-label">Confirm Password<span class="star">  *</span></label>
+					<div class="col-lg-9">
+						<input class="form-control" id="confirmPassword" placeholder="....." type="password" name="confirmPassword">
+						<span id="txt_confirmPassword"></span>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label for="firstName" class="col-lg-3 control-label">First Name<span class="star">  *</span></label>
+					<div class="col-lg-9">
+						<input class="form-control" id="firstName" placeholder="First Name" type="text" name="firstName">
+						<span id="text"></span>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label for="lastName" class="col-lg-3 control-label">Last Name</label>
+					<div class="col-lg-9">
+						<input class="form-control" id="lastName" placeholder="Last Name" type="text">
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label for="inputEmail" class="col-lg-3 control-label">Email<span class="star">  *</span></label>
+					<div class="col-lg-9">
+						<input class="form-control" id="inputEmail" placeholder="Email" type="text" name="email">
+						<span id="text"></span>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<div class="col-lg-9 col-lg-offset-3">
+						<p><span class="star">  </span>Required field</p>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<div class="col-lg-9 col-lg-offset-3">
+						<button type="reset" class="btn btn-default">Cancel</button>
+						<button type="submit" class="btn btn-primary">Submit</button>
+					</div>
+				</div>
+				
+				<!-- javascript code -->
+				
+				<script type="text/javascript">
+					// My  Function
+					// ==================================
+					function myValidate(event){						
+						// Message Array
+						var messages = ["Fill up the username.", "Fill up the password 2.", "Fill up the confirm password."]; // Add More messages 
+						
+						var inputList = document.querySelectorAll('input[type=text], input[type=password]');
+						
+						for( var i = 0; i < inputList.length; i++ ) {
+							var inputName = inputList[i].name;
+							
+							if( inputList[i].value === "" ){
+								event.preventDefault();
+								
+								if(document.querySelector("#txt_"+inputName) !== null && document.querySelector("#txt_"+inputName) !== 'undefined') {
+									document.querySelector("#txt_"+inputName).innerHTML = messages[i];
+								}
+								
+								inputList[i].focus();
+								
+								//return false;
+							}
+							else {
+								return true;
+							}
+						}
+					}
+					
+					// ==================================
+					// Your Function 
+					// ==================================
+					function validate(event){
+						
+						event.preventDefault(); // Just added for testing. remove it later ( This will prevent from for submitting )
+						
+						if(document.frm.username.value == ""){
+							document.getElementById("txt_username").innerHTML = "Fill up the username."; // change 1 : change ID
+							document.frm.username.focus();
+							//return false; // Change 2 : Remove Return false from all IF conditions and club all the IF conditions
+						}
+						
+						
+						if(document.frm.password.value ==""){
+							document.getElementById("txt_password").innerHTML = "Fill up the password."; // change 2 : change ID
+							document.frm.password.focus();
+							return false;
+						}
+						
+						// this way change id of every span element instead of just "text", 
+						// Give uniq IDs to all Span tags
+						if(document.frm_validate.confirmPassword.value == ""){
+							document.getElementById("text").innerHTML = "Fill up the confirm password.";
+							document.frm.confirmPassword.focus();
+							return false;
+						}
+						
+						if(document.frm_validate.firstName.value == ""){
+							document.getElementById("text").innerHTML = "Fill up the first name.";
+							document.frm.firstName.focus();
+							return false;
+						}
+						
+						
+						if(document.frm_validate.email.value == ""){
+							document.getElementById("text").innerHTML = "Fill up the email.";
+							document.frm.email.focus();
+							return false;
+						}
+						
+						return true;
+					}
+					
+				</script>﻿
+			</body>
+		</html>												
